@@ -1,1 +1,1 @@
-# Voice-To-Text-Mini-App
+# Voice-To-Text-MiniApp
