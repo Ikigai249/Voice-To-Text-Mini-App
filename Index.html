@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nu-Voice Notes</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Nu-Voice</h1>
+            <span class="subtitle">AI Transcription Pad</span>
+        </header>
+
+        <main>
+            <div class="note-paper" id="note-paper" contenteditable="true">
+                <p class="placeholder">Your transcribed notes will appear here... (Tap 'Start Listening' to begin)</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="controls-bar">
+                <button id="start-btn" class="btn btn-primary">Start Listening</button>
+                <button id="stop-btn" class="btn btn-secondary" disabled>Stop</button>
+                <button id="clear-btn" class="btn btn-danger">Clear</button>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
