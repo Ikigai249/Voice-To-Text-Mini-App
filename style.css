@@ -1,0 +1,160 @@
+/* --- Global Styles & Reset --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --text-main: #fff;
+    --paper-white: rgba(252, 252, 252, 0.95);
+    --primary-accent: #ff007f; /* Magenta pulse */
+    --shadow-main: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    overflow: hidden; /* Keeps the glass panel centered */
+}
+
+/* --- App Container (The Glass Panel) --- */
+.app-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    width: 90%;
+    max-width: 800px;
+    height: 85vh;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-main);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    overflow: hidden; /* Keep paper inside */
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-weight: 300;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- Main Note Area ("Digital Paper") --- */
+main {
+    flex: 1; /* Pushes footer down, takes available space */
+    overflow-y: auto; /* Scrollable notes */
+    margin-bottom: 1.5rem;
+    padding-right: 10px; /* Space for scrollbar */
+}
+
+.note-paper {
+    background: var(--paper-white);
+    color: #333;
+    width: 100%;
+    min-height: 100%;
+    border-radius: 12px;
+    padding: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+    outline: none; /* Removes focus border */
+}
+
+.note-paper .placeholder {
+    color: #888;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* --- Controls Footer --- */
+.controls-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1rem;
+}
+
+/* --- Button Styling --- */
+.btn {
+    border: none;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #764ba2;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: #f0f0f0;
+}
+
+.btn-secondary {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.btn-danger {
+    background-color: #ff4b4b;
+    color: #fff;
+}
+
+/* --- Listening State (Visual Feedback) --- */
+/* This class will be added by JavaScript */
+.listening {
+    background-color: var(--primary-accent) !important;
+    color: white !important;
+    position: relative;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 127, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 127, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 127, 0);
+    }
+}
